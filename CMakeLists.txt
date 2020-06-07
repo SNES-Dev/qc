@@ -24,9 +24,11 @@ else()
     set(QC_INSTALL_ROOTDIR ${CMAKE_INSTALL_PREFIX})
 endif()
 
+configure_file(include/qc_config.h.in include/qc_config.h)
+
 add_qc_library(qc include/qc_base.h include/qc_float.h include/qc_int.h qc_float.c qc_int.S)
 
-set_target_properties(qc PROPERTIES INCLUDE_DIRECTORIES ${CMAKE_CURRENT_SOURCE_DIRECTORY}/include)
+set_property(TARGET qc PROPERTY INCLUDE_DIRECTORIES ${CMAKE_CURRENT_SOURCE_DIRECTORY}/include ${CMAKE_CURRENT_BINARY_DIR}/include)
 
 set_property(TARGET qc PROPERTY COMPILE_OPTIONS -nostdinc -ffreestanding)
 

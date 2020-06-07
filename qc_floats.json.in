@@ -1,0 +1,10 @@
+#include "qc_info_defs.inc"
+
+#define __qc_def_float(type,bits,expbits,sigbits)\
+    {"mode":__qc_quoted(__qc_float_size_md(bits),"exponent":expbits,"sigbits":sigbits,
+    "ops":[__qc_float_ops(_Float##bits,__qc_float_##bits)]}
+
+[
+#include <qc_float.inc>
+]
+
