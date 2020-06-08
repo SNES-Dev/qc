@@ -137,14 +137,14 @@
             _UInt##bits sig:sigbits;\
         }__repr;\
     }__qc_float_##bits;\
-    __qc_float_ops(_Float##bits,__qc_float_##bits)
+    __qc_float_ops(_Float##bits,__qc_float_##bits);
 
 #defime __qc_def_fixed(type,bits,fixed_at)\
     typedef type _Fixed##bits __qc_sized_fixed(bits);\
     enum { __QC_FIXED_BREAK_##bits};\
-    __qc_float_ops(_Fixed##bits,__qc_fixed_##bits)
+    __qc_float_ops(_Fixed##bits,__qc_fixed_##bits);
 
-#include "qc_float.h"
+#include "qc_float.inc"
 
 #define FLT_RADIX 2
 
