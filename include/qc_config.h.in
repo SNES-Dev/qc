@@ -1,12 +1,14 @@
 #ifndef __QC_CONFIG_H_2020_06_04_21_44_08
 #define __QC_CONFIG_H_2020_06_04_21_44_08
 
+#pragma push_macro("QC_NO_I128")
 #cmakedefine QC_NO_I128
 
 #ifdef QC_NO_I128
 #define __QC_NO_I128 QC_NO_I128
 #undef QC_NO_I128
 #endif
+#pragma pop_macro("QC_NO_I128")
 
 #define __qc_eval(expn) expn
 #define __qc_quoted0(expn) #expn
