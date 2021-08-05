@@ -1,0 +1,16 @@
+
+AS = @AS@
+AR = @AR@
+
+float_support = @float_support@
+
+prefix = @prefix@
+exec_prefix = @exec_prefix@
+libdir = @libdir@
+
+FLOAT_no_OBJS = 
+FLOAT_yes_OBJS = float/software/float16.s 
+
+INT_OBJS = 
+
+INT128_OBJS =
