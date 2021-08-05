@@ -1,6 +1,7 @@
 
 AS = @AS@
 AR = @AR@
+INSTALL = @INSTALL@
 
 float_support = @float_support@
 
@@ -30,6 +31,8 @@ endif
 
 all: stamp
 
+.PHONY: all install install-strip install-libqc.a install-libqcint.a install-libqcfloat.a clean distclean check
+
 Makefile: @srcdir@/Makefile.in config.status
 	./config.status Makefile
 
@@ -52,3 +55,17 @@ dirs:
 stamp: $(OUTPUTS)
 	touch stamp
 
+install: $(foreach output,$(OUTPUTS),install-$(output)) install-libqc.a
+
+install-strip: install
+
+install-%: %
+	$(INSTALL) -m644 $^ ${libdir}/
+
+clean:
+	rm -rf stamp $(INT_OBJS) $(FLOAT_OBJS) $(OUTPUTS)
+
+distclean: clean
+	rm -rf config.status config.cache Makefile
+
+check: 

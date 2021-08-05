@@ -21,6 +21,7 @@ AC_PATH_TOOL([AR],[ar])
 
 AC_PATH_TOOL([AS],[as])
 
+
 AC_ARG_ENABLE([float],[
     Enables floating point support
 ],[
@@ -46,6 +47,16 @@ AC_ARG_ENABLE([int128],[Enable support for 128-bit integers and fixed-point type
 AC_SUBST([float_support])
 AC_SUBST([int128_support])
 
+qc_libs="libqcint.a"
+
+if test x$float_support != xno
+then
+    qc_libs="$qc_libs libqcfloat.a"
+fi
+
+AC_SUBST([qc_libs])
+
+AC_CONFIG_FILES([libqc.a])
 AC_CONFIG_FILES([Makefile])
 
 

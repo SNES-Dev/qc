@@ -1,1 +1,1 @@
-GROUP(@OUTPUTS);
+GROUP(@qc_libs@);
