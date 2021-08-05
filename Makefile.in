@@ -9,8 +9,12 @@ exec_prefix = @exec_prefix@
 libdir = @libdir@
 
 FLOAT_no_OBJS = 
-FLOAT_yes_OBJS = float/software/float16.s 
+FLOAT_yes_OBJS = float/soft/float16.o float/soft/float32.o float/soft/float64.o
+FLOAT_cop_OBJS = float/hard/float16.o float/hard/float32.o float/hard/float64.o
+FLOAT_OBJS = float/trig16.o float/trig32.o float/trig64.o float/exp16.o float/exp32.o float/exp64.o ${FLOAT_@float_support@_OBJS} float/cvt.o
 
-INT_OBJS = 
+INT_OBJS = int/int8.o int/int16.o int/int32.o int/int64.o
 
-INT128_OBJS =
+INT128_OBJS = int/int128.o
+
+
