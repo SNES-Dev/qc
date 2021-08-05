@@ -4,6 +4,8 @@ AC_INIT()
 
 AC_CANONICAL_HOST
 
+AC_PROG_INSTALL
+
 case $host in
     w65-* )
     ;;
