@@ -1,6 +1,6 @@
-AC_INIT([snes-dev])
+AC_INIT()
 
-AC_CONFIG_MACRO_DIRS([m4/])
+
 
 AC_CANONICAL_HOST
 
@@ -19,7 +19,7 @@ AC_PATH_TOOL([AR],[ar])
 
 AC_PATH_TOOL([AS],[as])
 
-AC_ARG_ENABLE([float-support],[
+AC_ARG_ENABLE([float],[
     Enables floating point support
 ],[
     case x$enableval in
@@ -35,9 +35,14 @@ AC_ARG_ENABLE([float-support],[
     float_support=yes
 ])
 
-AC_ARG_ENABLE([int128],[Enable support for 128-bit integers and fixed-point types])
+AC_ARG_ENABLE([int128],[Enable support for 128-bit integers and fixed-point types],[
+    int128_support=$enableval
+],[
+    int128_support=no
+])
 
-AC_SUBST(float_support)
+AC_SUBST([float_support])
+AC_SUBST([int128_support])
 
 AC_CONFIG_FILES([Makefile])
 

@@ -1,3 +1,4 @@
-/build*
-/cmake-build*
-*~
+/.idea/
+cmake-build-*/
+build*/
+autom4te.cache/

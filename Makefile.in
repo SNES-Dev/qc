@@ -17,4 +17,38 @@ INT_OBJS = int/int8.o int/int16.o int/int32.o int/int64.o
 
 INT128_OBJS = int/int128.o
 
+ifeq (yes,@int128_support@)
+INT_OBJS += $(INT128_OBJS)
+endif
+
+OUTPUTS = libqcint.a
+
+ifeq (no,@float_support@)
+else
+OUTPUTS += libqcfloat.a
+endif
+
+all: stamp
+
+Makefile: @srcdir@/Makefile.in config.status
+	./config.status Makefile
+
+config.status: @srcdir@/configure
+	./config.status --recheck
+
+libqcint.a: $(INT_OBJS)
+	$(AR) rcs $@ $^
+
+libqcfloat.a: $(FLOAT_OBJS)
+	$(AR) rcs $@ $^
+
+$(INT_OBJS) $(FLOAT_OBJS): @builddir@/%.o: @srcdir@/%.s Makefile dirs
+	$(AS) -o $@ $<
+
+dirs: 
+	mkdir int/ float/ float/soft/ float/hard/ 
+	touch dirs
+
+stamp: $(OUTPUTS)
+	touch stamp
 
