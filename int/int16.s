@@ -1,4 +1,11 @@
 
+.global __fixed_add16
+.global __uint_add16
+.global __int_add16
+.global __fixed_sub16
+.global __uint_sub16
+.global __int_sub16
+
 __fixed_add16:
 __uint_add16:
 __int_add16:

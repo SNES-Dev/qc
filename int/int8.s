@@ -1,4 +1,11 @@
 
+.global __fixed_add8
+.global __uint_add8
+.global __int_add8
+.global __fixed_sub8
+.global __uint_sub8
+.global __int_sub8
+
 __fixed_add8:
 __uint_add8:
 __int_add8:
